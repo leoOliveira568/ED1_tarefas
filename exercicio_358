@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int mercadorias = 100;
+        int mercadoriasComLucro = 0;
+
+        for (int i = 0; i < mercadorias; i++) {
+            System.out.print("Digite o preço de compra da mercadoria " + (i+1) + ": ");
+            double precoCompra = scanner.nextDouble();
+            System.out.print("Digite o preço de venda da mercadoria " + (i+1) + ": ");
+            double precoVenda = scanner.nextDouble();
+
+            if (precoVenda > precoCompra) {
+                mercadoriasComLucro++;
+            }
+        }
+
+        System.out.println("Das " + mercadorias + " mercadorias, " + mercadoriasComLucro + " proporcionam lucro.");
+
+        scanner.close();
+    }
+}
