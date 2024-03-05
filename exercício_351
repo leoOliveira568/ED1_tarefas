@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String[] nomes = new String[5];
+
+        // Armazena cinco nomes
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Digite o " + (i+1) + "º nome: ");
+            nomes[i] = scanner.nextLine();
+        }
+
+        // Pede um número que vai corresponder a uma pessoa e vai imprimir isso
+        System.out.print("Digite um número (1 a 5) correspondente a uma pessoa: ");
+        int numero = Integer.parseInt(scanner.nextLine());
+
+        if (numero >= 1 && numero <= 5) {
+            System.out.println("O nome correspondente é: " + nomes[numero-1]);
+        } else {
+            System.out.println("Número inválido. Por favor, digite um número de 1 a 5.");
+        }
+
+        scanner.close();
+    }
+}
