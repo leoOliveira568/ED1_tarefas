@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Para armazenar os dados dos alunos
+        Aluno[] alunos = new Aluno[15];
+
+        // Armazena nomes e notas das PR1 e PR2 dos 15 alunos
+        for (int i = 0; i < 15; i++) {
+            System.out.print("Digite o nome do " + (i+1) + "º aluno: ");
+            String nome = scanner.nextLine();
+            System.out.print("Digite a nota da PR1: ");
+            double pr1 = Double.parseDouble(scanner.nextLine());
+            System.out.print("Digite a nota da PR2: ");
+            double pr2 = Double.parseDouble(scanner.nextLine());
+            double media = Math.round(((pr1 + pr2) / 2) * 10.0) / 10.0;
+            String situacao = media >= 6 ? "AP" : "RP";
+            alunos[i] = new Aluno(nome, pr1, pr2, media, situacao);
+        }
+
+        // Imprime a listagem com nome, notas, média e situação de cada aluno
+        System.out.println("Nome\tPR1\tPR2\tMédia\tSituação");
+        for (Aluno aluno : alunos) {
+            System.out.println(aluno.getNome() + "\t" + aluno.getPr1() + "\t" + aluno.getPr2() + "\t" + aluno.getMedia() + "\t" + aluno.getSituacao());
+        }
+
+        scanner.close();
+    }
+
+    static class Aluno {
+        private String nome;
+        private double pr1;
+        private double pr2;
+        private double media;
+        private String situacao;
+
+        public Aluno(String nome, double pr1, double pr2, double media, String situacao) {
+            this.nome = nome;
+            this.pr1 = pr1;
+            this.pr2 = pr2;
+            this.media = media;
+            this.situacao = situacao;
+        }
+
+        public String getNome() {
+            return nome;
+        }
+
+        public double getPr1() {
+            return pr1;
+        }
+
+        public double getPr2() {
+            return pr2;
+        }
+
+        public double getMedia() {
+            return media;
+        }
+
+        public String getSituacao() {
+            return situacao;
+        }
+    }
+}
