@@ -1,0 +1,41 @@
+public class MatrizDiferenca {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int[][] matriz1 = new int[5][5];
+        int[][] matriz2 = new int[5][5];
+        int[][] matrizDiferenca = new int[5][5];
+        
+        System.out.println("Digite os valores da primeira matriz (5x5):");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print("Matriz1[" + (i+1) + "][" + (j+1) + "]: ");
+                matriz1[i][j] = scanner.nextInt();
+            }
+        }
+        
+        System.out.println("\nDigite os valores da segunda matriz (5x5):");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print("Matriz2[" + (i+1) + "][" + (j+1) + "]: ");
+                matriz2[i][j] = scanner.nextInt();
+            }
+        }
+        
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                matrizDiferenca[i][j] = matriz1[i][j] - matriz2[i][j];
+            }
+        }
+        
+        System.out.println("\nMatriz Diferença (Matriz1 - Matriz2):");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(matrizDiferenca[i][j] + "\t");
+            }
+            System.out.println();
+        }
+        
+        scanner.close();
+    }
+}
