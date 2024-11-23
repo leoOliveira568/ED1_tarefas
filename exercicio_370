@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class ReservasSimples {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o número de voos: ");
+        int numVoos = scanner.nextInt();
+        int[] lugaresDisponiveis = new int[numVoos];
+        System.out.println("Digite a quantidade de lugares disponíveis para cada voo:");
+        for (int i = 0; i < numVoos; i++) {
+            System.out.print("Voo " + (i + 1) + ": ");
+            lugaresDisponiveis[i] = scanner.nextInt();
+        }
+
+        while (true) {
+            System.out.print("\nDigite o número da identidade do cliente (ou -1 para sair): ");
+            int identidade = scanner.nextInt();
+            if (identidade == -1) {
+                break; 
+            }
+
+            System.out.print("Digite o número do voo desejado: ");
+            int voo = scanner.nextInt();
+
+            if (voo > 0 && voo <= numVoos) {
+                if (lugaresDisponiveis[voo - 1] > 0) {
+                    
+                    lugaresDisponiveis[voo - 1]--;
+                    System.out.println("Reserva confirmada! Identidade: " + identidade + ", Voo: " + voo);
+                } else {
+                    
+                    System.out.println("Desculpe, não há lugares disponíveis no voo " + voo + ".");
+                }
+            } else {
+                System.out.println("Número de voo inválido.");
+            }
+        }
+
+        System.out.println("\nEncerrando sistema de reservas.");
+        scanner.close();
+    }
+}
