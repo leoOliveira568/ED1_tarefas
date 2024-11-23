@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class ParOuImpar {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] num = new int[15];
+
+        for (int i = 0; i < 15; i++) {
+            System.out.print("Digite o número " + (i + 1) + ": ");
+            num[i] = scanner.nextInt();
+        }
+
+        System.out.println("\nListagem:");
+        for (int i = 0; i < 15; i++) {
+            String tipo = (num[i] % 2 == 0) ? "par" : "ímpar";
+            System.out.println((i + 1) + ". Número: " + num[i] + " - " + tipo);
+        }
+
+        scanner.close();
+    }
+}
