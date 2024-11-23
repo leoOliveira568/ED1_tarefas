@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class ConjuntosComunsSemEstruturas {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Conjuntos de entrada
+        System.out.print("Quantos elementos no conjunto A (10 a 20)? ");
+        int nA = scanner.nextInt();
+        int[] conjuntoA = new int[nA];
+        System.out.println("Digite os elementos do conjunto A:");
+        for (int i = 0; i < nA; i++) {
+            conjuntoA[i] = scanner.nextInt();
+        }
+
+        System.out.print("Quantos elementos no conjunto B (10 a 20)? ");
+        int nB = scanner.nextInt();
+        int[] conjuntoB = new int[nB];
+        System.out.println("Digite os elementos do conjunto B:");
+        for (int i = 0; i < nB; i++) {
+            conjuntoB[i] = scanner.nextInt();
+        }
+
+        // Encontrar e exibir os elementos comuns
+        System.out.println("Elementos comuns (sem repetição):");
+        for (int i = 0; i < conjuntoA.length; i++) {
+            boolean jaExibido = false;
+            for (int k = 0; k < i; k++) {
+                if (conjuntoA[i] == conjuntoA[k]) {
+                    jaExibido = true;
+                    break;
+                }
+            }
+
+            if (!jaExibido) {
+                for (int j = 0; j < conjuntoB.length; j++) {
+                    if (conjuntoA[i] == conjuntoB[j]) {
+                        System.out.print(conjuntoA[i] + " ");
+                        break;
+                    }
+                }
+            }
+        }
+
+        scanner.close();
+    }
+}
